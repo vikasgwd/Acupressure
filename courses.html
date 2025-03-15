@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun Academy Of Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <a href="tel:+918073212654"><i class="fas fa-phone"></i> +91 8073212654</a>
+            <a href="mailto:info@varungowdaacademy.com"><i class="fas fa-envelope"></i> info@gurukrupaacademy.com</a>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+  
+    <!-- Full-screen Sections -->
+    <section id="home" class="scroll-section">
+        <!-- <div style="scroll-margin-top:60px;"></div> -->
+        <div class="container">
+            <img src="images/Logo.png" class="image" alt="Logo">
+            <div class="text">Varun Gowda</div>
+        </div>
+        <!-- <div style="margin-top: 50px;"></div>
+        <img src="images/Logo.png" alt="Yoga Class"> -->
+        <h1>Varun Academy Of Learning</h1>
+        <p>Professional Yoga Education & Holistic Wellness</p>
+        <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#courses">Courses</a>
+                <a href="#blog">Blog</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+        <img src="images/Namasthe.png" alt="Yoga Class">
+    </section>
+ 
+
+
+    <section id="courses" class="scroll-section_1"> 
+        <div class="courses-container">
+            <!-- Course Category 1 -->
+            <div class="course-category">
+                <h2>Wellness Services </h2>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <h3>Dry Needle Therapy</h3>
+                        <p>A treatment using thin needles to target trigger points in muscles, relieving pain and improving mobility.</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                    <div class="course-card">
+                        <h3>Yoga Therapy</h3>
+                        <p>Holistic approach integrating yoga postures, breathing techniques, and meditation for physical/mental well-being.</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                    <div class="course-card">
+                        <h3>Prenatal Garbha Sanskara</h3>
+                        <p>Traditional practice nurturing the baby through music, meditation, and positive affirmations.</p>
+                        <button class="read-more">Read More</button>
+                    </div>
+                </div>
+            </div>                                                                                                                                                             
+
+
+
+
+<section id="contact" class="scroll-section_1">
+    <div class="map-container">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.
+       1234567890123!2d77.1234567!3d12.3456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!
+       1s0x0%3A0x0!2zMTLCsDIwJzQ0LjQiTiA3N8KwMDcnNDkuNiJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+               allowfullscreen loading="lazy">
+       </iframe>
+    </div>       
+    <div class="contact-info">
+        <h2>Contact Us</h2>
+        <address>
+            Varun Academy<br>
+          #40/2 1st Floor, Khasi Street,<br>
+          maha Lakshmi Layout, Near South End Circle<br>
+          Metro Station, Behind Shanti Sagar,<br>
+          Bangalore - 560004<br><br>
+          Tel: <a href="tel:+8073212654">+91-9513195557</a><br>
+          Email: <a href="mailto:varungowda@gmail.com">varungowda@gmail.com</a>
+        </address>
+      </div>
+</section> 
+  </section>   
+  
+    
+    </section> 
+
+
+      </section>
+      
+
+    <script>
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Active section detection
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.scroll-section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                            link.style.color = 'var(--accent-gold)';
+                        } else {
+                            link.style.color = 'var(--text-light)';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
