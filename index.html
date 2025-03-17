@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
      <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <!-- Top Contact Bar -->
     <div class="top-bar">
@@ -29,17 +30,19 @@
         <h1>Varun Academy Of Learning</h1>
         <p>Professional Yoga Education & Holistic Wellness</p>
         <nav>
-        <div class="nav-container">
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#courses">Courses</a>
-                <a href="#blog">Blog</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-container">
+                <div class="menu-icon">☰</div> <!-- Remove onclick -->
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+        
         <img src="images/Namasthe.png" alt="Yoga Class">
     </section>
 
@@ -209,38 +212,69 @@
     </section> 
       </section>   
 
-    <script>
-        // Smooth scroll functionality
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+
+      
+      <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+           const navLinks = document.querySelector(".nav-links");
+
+    if (!menuIcon || !navLinks) {
+        console.error("Menu icon or navigation links not found.");
+        return;
+    }
+
+    menuIcon.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+        console.log("Menu toggled:", navLinks.classList.contains("show")); // Debugging
+    });
+               
+            // function toggleMenu() {
+            //     const menu = document.querySelector(".nav-links");
+            //     if (menu) {
+            //         menu.classList.toggle("show");
+            //     } else {
+            //         console.error("Menu element not found.");
+            //     }
+            // }
+    
+            // document.querySelector(".menu-icon").addEventListener("click", toggleMenu);
+            // document.querySelector(".close-menu").addEventListener("click", toggleMenu);
+    
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    toggleMenu(); // Close menu on link click
                 });
             });
-        });
-
-        // Active section detection
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.scroll-section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
-                    const id = section.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                            link.style.color = 'var(--accent-gold)';
-                        } else {
-                            link.style.color = 'var(--text-light)';
-                        }
-                    });
-                }
+    
+            // Active section highlight
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('.scroll-section');
+                const navLinks = document.querySelectorAll('.nav-links a');
+    
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 150 && window.scrollY < sectionTop + sectionHeight - 150) {
+                        const id = section.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                                link.style.color = 'var(--accent-gold)';
+                            } else {
+                                link.style.color = 'var(--text-light)';
+                            }
+                        });
+                    }
+                });
             });
         });
     </script>
